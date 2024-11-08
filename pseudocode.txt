@@ -1,0 +1,3 @@
+FUNC getComputerChoice will make a random choice.
+FUNC getHumanChoice will retrieve the choice from the human.
+the program will have a total of 5 rounds and will keep track of the user and computer scores
