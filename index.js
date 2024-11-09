@@ -1,30 +1,39 @@
 function getHumanChoice() {
-    const choice = parseInt(
-        prompt("Type your choice\n 1: Rock\n2:Paper\n3:Scissors"),
-    );
-    if (choice !== 1 && choice !== 2 && choice !== 3) {
+    const choice = prompt("Type your choice\nRock\nPaper\nScissors")
+        .toLowerCase();
+    if (choice !== "rock" && choice !== "paper" && choice !== "scissors") {
         alert("Valor ingresado no valido!");
-        getHumanChoice();
     }
     return choice;
 }
 
-const getComputerChoice = () => Math.floor(Math.random() * 3) + 1;
+const getComputerChoice = () => {
+    switch (Math.floor(Math.random() * 3) + 1) {
+        case 1:
+            return "rock";
+        case 2:
+            return "paper";
+        case 3:
+            return "scissors";
+        default:
+            return undefined;
+    }
+};
 
 let humanScore = 0;
 let computerScore = 0;
 
 function playRound(humanChoice, computerChoice) {
     if (
-        humanChoice === 1 && computerChoice === 2 ||
-        humanChoice === 2 && computerChoice === 3 ||
-        humanChoice === 3 && computerChoice === 1
+        humanChoice === "rock" && computerChoice === "paper" ||
+        humanChoice === "paper" && computerChoice === "scissors" ||
+        humanChoice === "scissors" && computerChoice === "paper"
     ) {
         computerScore++;
     } else if (
-        humanChoice === 2 && computerChoice === 1 ||
-        humanChoice === 3 && computerChoice === 2 ||
-        humanChoice === 1 && computerChoice === 3
+        humanChoice === "paper" && computerChoice === "rock" ||
+        humanChoice === "scissors" && computerChoice === "paper" ||
+        humanChoice === "rock" && computerChoice === "scissors"
     ) {
         humanScore++;
     }
