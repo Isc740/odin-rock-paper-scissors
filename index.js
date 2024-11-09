@@ -38,12 +38,14 @@ function playRound(humanChoice, computerChoice) {
     ) {
         alert(`You win! ${humanChoice} beats ${computerChoice}`);
         humanScore++;
+    } else {
+        alert("Its a tie!");
     }
 }
 
 function playGame() {
     for (let i = 0; i < 5; i++) {
-        alert(`Your score: ${humanScore}\nComputer score${computerScore}`);
+        alert(`Your score: ${humanScore}\nComputer score: ${computerScore}`);
         playRound(getHumanChoice(), getComputerChoice());
     }
 }
