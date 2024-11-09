@@ -29,12 +29,23 @@ function playRound(humanChoice, computerChoice) {
         humanChoice === "paper" && computerChoice === "scissors" ||
         humanChoice === "scissors" && computerChoice === "paper"
     ) {
+        alert(`You lose! ${computerChoice} beats ${humanChoice}`);
         computerScore++;
     } else if (
         humanChoice === "paper" && computerChoice === "rock" ||
         humanChoice === "scissors" && computerChoice === "paper" ||
         humanChoice === "rock" && computerChoice === "scissors"
     ) {
+        alert(`You win! ${humanChoice} beats ${computerChoice}`);
         humanScore++;
     }
 }
+
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        alert(`Your score: ${humanScore}\nComputer score${computerScore}`);
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+}
+
+playGame();
